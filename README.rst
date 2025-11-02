@@ -31,11 +31,17 @@ Build status
 Compiling
 =========
 
-The following commands can be used to compile PRoot and CARE::
+The project now ships with a CMake build system; a typical build looks like::
 
-    make -C src loader.elf loader-m32.elf build.h # first build the config and loader
-    make -C src proot care # then compile PRoot and CARE
-    make -C test # run test suite
+    cmake -S . -B build
+    cmake --build build
+
+The binaries ``build/src/proot`` and ``build/src/care`` will be produced in the
+configured build directory.  By default the CMake build downloads the required
+``libtalloc`` and ``libarchive`` dependencies automatically; pass
+``-DPROOT_FETCH_DEPENDENCIES=OFF`` if you prefer to link against system
+packages.  You can still invoke the legacy ``make -C test`` target to run the
+historical test suite if required.
 
 |asciicast|
 
