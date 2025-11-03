@@ -30,7 +30,7 @@ if(PROOT_FETCH_DEPENDENCIES)
         URL ${TALLOC_URL}
         URL_HASH SHA256=dc46c40b9f46bb34dd97fe41f548b0e8b247b77a918576733c528e83abd854dd
         PREFIX ${PROOT_DEPS_PREFIX}/talloc
-        CONFIGURE_COMMAND ./configure --prefix=${PROOT_DEPS_INSTALL}
+        CONFIGURE_COMMAND ./configure --prefix=${PROOT_DEPS_INSTALL} --disable-python
         BUILD_COMMAND make
         INSTALL_COMMAND make install
         BUILD_IN_SOURCE ON
